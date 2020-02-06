@@ -116,13 +116,15 @@ Stores the diagnosis conditions patient has informed during a patient visit.
 
 # 3. List of API's:  
 - #### 3.1. /lineentry  
-The api to save the patient'
+This API is to save the patient'
 s visit details. The visit details are saved into the following tables. The primary details of the visit are saved into the ***patient_det_trans***. Also the patient profile and ID's are saved into ***uhc_pds_map_member_data*** Entry of the visit is generated and are being referenced to other tables.  
 The patient's lab test details are saved into ***patient_labs***.  
 The drugs issued to the patient's are saved into ***patient_drugs***.   
 The diagnosis condition's found with the patient are saved into ***patient_diagnoses***.   
 If the visit is referred out to another institution, then a copy of all the visit details are being copied and saved into the respective tables with their associated ID's.
-- #### 3.2. /lineentry/update
+- #### 3.2. /lineentry/update  
+The data received from the /lineentry data is being modified using this API.  
+The data is modified in the similar fashion to that of creation of the line entry.
 - #### 3.3. /captcha
 - #### 3.4. /errorHandler
 - #### 3.5. /api/dailyreport/drug
