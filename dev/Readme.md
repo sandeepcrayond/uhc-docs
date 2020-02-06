@@ -127,10 +127,15 @@ The data received from the ***/lineentry*** data is being modified using this AP
 The data is modified in the similar fashion to that of creation of the line entry.
 - #### 3.3. /captcha  
 This API is to generate an captcha to be displayed in the frontend along with the hash. An SVG format image is being generated to be displayed. It uses a npm package ***"svg-captcha"***.
-- #### 3.4. /errorHandler
-- #### 3.5. /api/dailyreport/drug
-- #### 3.6. /api/dailyreport/services
-- #### 3.7. /api/druginventory
+- #### 3.4. /errorHandler  
+All the errors which are captured in the frontend is being captured is being saved into the table ***error_handles***. 
+- #### 3.5. /api/dailyreport/drug  
+This API is to generate save all the report of the current day's drug issue is saved. It is saved into the table ***phc_report***.
+- #### 3.6. /api/dailyreport/services  
+This API is to generate save all the report of the current service offered to all the patient. It is saved into the table ***phc_report_services***.
+- #### 3.7. /api/druginventory  
+This API saves all the current day's inventory supply. All the data is being saved into the table ***drugs_inventory***. Current day's supply is being displayed in the drug utilization page. And the calculation happens as this.  
+The drug issued is displayed alongside with the current day's issue calculated from the line entries received.
 - #### 3.8. /:lang/:pagename
 - #### 3.9. /api/phcchange
 - #### 3.10. /api/users
