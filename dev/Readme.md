@@ -123,9 +123,10 @@ The drugs issued to the patient's are saved into ***patient_drugs***.
 The diagnosis condition's found with the patient are saved into ***patient_diagnoses***.   
 If the visit is referred out to another institution, then a copy of all the visit details are being copied and saved into the respective tables with their associated ID's.
 - #### 3.2. /lineentry/update  
-The data received from the /lineentry data is being modified using this API.  
+The data received from the ***/lineentry*** data is being modified using this API.  
 The data is modified in the similar fashion to that of creation of the line entry.
-- #### 3.3. /captcha
+- #### 3.3. /captcha  
+This API is to generate an captcha to be displayed in the frontend along with the hash. An SVG format image is being generated to be displayed. It uses a npm package ***"svg-captcha"***.
 - #### 3.4. /errorHandler
 - #### 3.5. /api/dailyreport/drug
 - #### 3.6. /api/dailyreport/services
