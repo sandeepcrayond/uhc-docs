@@ -115,15 +115,16 @@ Stores the diagnosis conditions patient has informed during a patient visit.
 
 
 # 3. List of API's:  
-- ##### 3.1. /lineentry
-- ##### 3.2. /lineentry/update
-- ##### 3.3. /captcha
-- ##### 3.4. /errorHandler
-- ##### 3.5. /api/dailyreport/drug
-- ##### 3.6. /api/dailyreport/services
-- ##### 3.7. /api/druginventory
-- ##### 3.8. /:lang/:pagename
-- ##### 3.9. /api/phcchange
-- ##### 3.10. /api/users
-- ##### 3.11. /api/users/reset-password
-- ##### 3.12 /graphql
+- #### 3.1. /lineentry  
+  
+- #### 3.2. /lineentry/update
+- #### 3.3. /captcha
+- #### 3.4. /errorHandler
+- #### 3.5. /api/dailyreport/drug
+- #### 3.6. /api/dailyreport/services
+- #### 3.7. /api/druginventory
+- #### 3.8. /:lang/:pagename
+- #### 3.9. /api/phcchange
+- #### 3.10. /api/users
+- #### 3.11. /api/users/reset-password
+- #### 3.12 /graphql
