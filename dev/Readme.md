@@ -136,8 +136,13 @@ This API is to generate save all the report of the current service offered to al
 - #### 3.7. /api/druginventory  
 This API saves all the current day's inventory supply. All the data is being saved into the table ***drugs_inventory***. Current day's supply is being displayed in the drug utilization page. And the calculation happens as this.  
 The drug issued is displayed alongside with the current day's issue calculated from the line entries received.
-- #### 3.8. /:lang/:pagename
-- #### 3.9. /api/phcchange
-- #### 3.10. /api/users
+- #### 3.8. /:lang/:pagename(deprecated) :
+This API is used to pull the page's translated content from the server based on the languages and pagename sent as query parameters.
+- #### 3.9. /api/phcchange  :
+This API works in the similar fashion to ***'/lineentry'*** where only the institution which created it alone is changed and created as new visit. This happens when institution "A" sends a patient from his institution to insitution "B".
+- #### 3.10. /api/users  :
+This API is to get a login token, by sending out a username and password. The bearer token sent out acts as the authentication for all the API's. It is used in the Authorization header.
 - #### 3.11. /api/users/reset-password
+This API is used to reset the password for the particular user. A randomly generated password is sent out to the user's email. And the user can update it in his profile section.
 - #### 3.12 /graphql
+This API acts as the graphql endpoint for the application (refer the connection dir for further details).
