@@ -148,4 +148,4 @@ This API is used to reset the password for the particular user. A randomly gener
 This API acts as the graphql endpoint for the application (refer the connection dir for further details).
 
 
-> For internal details, check the application which says method wise, route wise, file wise details about them.
+> ## For internal details, check the application which says method wise, route wise, file wise details about them.
