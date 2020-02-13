@@ -146,3 +146,6 @@ This API is to get a login token, by sending out a username and password. The be
 This API is used to reset the password for the particular user. A randomly generated password is sent out to the user's email. And the user can update it in his profile section.
 - #### 3.12 /graphql
 This API acts as the graphql endpoint for the application (refer the connection dir for further details).
+
+
+> For internal details, check the application which says method wise, route wise, file wise details about them.
