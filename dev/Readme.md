@@ -300,6 +300,8 @@ All the logics are handled at the frontend wherever the application data is bein
 ## 3.1 Overview:  
 The application is an exact copy of the UHC API server but only contains a few extra queries which are used to generate the data required for reporting.
 
+![alt text](../assets/report-arch.png "report arch image")
+
 ## 3.2 Workflow:  
 The application's workflow happens as follows:
 1. The application has a cron which runs exactly at 11pm. 
