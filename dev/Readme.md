@@ -170,7 +170,7 @@ The application is written using es6. When the app is run locally using dev mode
 babel-node is the compiler used. Once when the local environment is done, the source code is built wherever required using the babel-cli and ran.  
 The babel plugins used are specified in the .babelrc file.
 
-```
+```javascript
 {
     "presets": [
         "@babel/preset-env",
@@ -253,7 +253,10 @@ The source code structure is as follows:
 # 2. Master registry:
 
 ## 2.1 Overview:  
-Master registry (a) MR is where all the source data such as population data and address data is present. The connection between address data and the population data is as follows.
+Master registry (a) MR is where all the source data such as population data and address data is present. The connection between address data and the population data is as follows.  
+  
+
+![alt text](../assets/master-registry-arch.png "Master registrr arch image")
 
 
 The image explains the hierarchy and the flow of data between tables.
@@ -262,11 +265,13 @@ The image explains the hierarchy and the flow of data between tables.
 
 For every head table, there is a member table associated which holds the population for that particular districts.
 
+![alt text](../assets/head-member.png "Master registrr arch image")
+
 ## 2.3 APP overview:  
 The application is a very crude app built using express and uses postgraphile as a simple middleware to generate all the queries. check postgraphile for its usage.
 
 All the logics are handled at the frontend wherever the application data is being pushed to.
-```
+```javascript
   app.use(postgraphile({
       host:conf.MASTER_HOST,
       user:conf.MASTER_USER,

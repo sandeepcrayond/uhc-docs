@@ -14,3 +14,13 @@ If code is being pulled, the application can be run in the local by setting up a
 Every time a change is commited and pushed to the repository, the codepipelines pulls the latest code from that branch.  
 And pushes them into s3 for a version maintaince for reverting facility.  
 The code is then pushed and verified successfully. If any changes, they are reverted back to the most recent running version.
+
+
+### Data workflow:
+All the applications such as op-api,op-ui, cdsp-ui, cdsp-api, master-registry-api, master-resgistry-ui follows a same workflow and is being pushed.
+
+The workflow is being defined here:  
+Please refer the image.  
+
+The steps follow as below:  
+1. 
