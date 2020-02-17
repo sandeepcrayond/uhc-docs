@@ -13,7 +13,7 @@
 2. Master registry  
    - DB structure
    - Tables, definitions and relationships.
-   - Graphql usage
+   - Graphql usage.
 3. Report tool  
    - API's and usage
    - Working.
@@ -149,3 +149,35 @@ This API acts as the graphql endpoint for the application (refer the connection 
 
 
 > ## For internal details, check the application which says method wise, route wise, file wise details about them.
+
+# 4. GraphQL usage:
+Throughtout the application all of the queries and mutations are being done throught graphql. Only a very few custom queries are written as API's to involve more custom logics.
+
+All the queries and mutations are written in the api/connection/resolvers file. 
+The queries and mutations are converted into a graphql schema and is passed into a middleware of express-graphql which also takes in a parameter of models of the db to make queries.
+This happens in the below context.
+```
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: {
+    models
+  },
+});
+```  
+# 5. Babel usage:
+
+The application is written using es6. When the app is run locally using dev mode or debug mode, the application uses nodemon and runs the code using babel compiler.  
+babel-node is the compiler used. Once when the local environment is done, the source code is built wherever required using the babel-cli and ran.  
+The babel plugins used are specified in the .babelrc file.
+
+```
+{
+    "presets": [
+        "@babel/preset-env",
+    ],
+    "plugins": ["transform-object-rest-spread", "@babel/transform-runtime"]
+}
+```
+
+All the commands to run are specified in the package.json files. Commands to run in all environment are specified such as i.e dev mode, prod mode, build source code etc.
