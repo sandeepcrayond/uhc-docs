@@ -12,7 +12,7 @@
 2. Master registry  
    - DB structure
    - Tables, definitions and relationships.
-   - Graphql usage.
+   - Application usage.
 3. Report tool  
    - API's and usage
    - Working.
@@ -250,3 +250,41 @@ The source code structure is as follows:
 
 > The application contains the necessary comments to understand the basic usage of every method etc.
 
+# 2. Master registry:
+
+## 2.1 Overview:  
+Master registry (a) MR is where all the source data such as population data and address data is present. The connection between address data and the population data is as follows.
+
+
+The image explains the hierarchy and the flow of data between tables.
+
+## 2.2 DB structure and table definitions:  
+
+For every head table, there is a member table associated which holds the population for that particular districts.
+
+## 2.3 APP overview:  
+The application is a very crude app built using express and uses postgraphile as a simple middleware to generate all the queries. check postgraphile for its usage.
+
+All the logics are handled at the frontend wherever the application data is being pushed to.
+```
+  app.use(postgraphile({
+      host:conf.MASTER_HOST,
+      user:conf.MASTER_USER,
+      password:conf.MASTER_PASSWORD,
+      database:conf.MASTER_NAME,
+      max:756,
+      idleTimeoutMillis:30000,
+      connectionTimeoutMillis:2000
+  },'public',{
+      graphiql:true,
+      retryOnInitFail:true,
+      bodySizeLimit:'100MB',
+      enableQueryBatching:true,
+      // queryCacheMaxSize:"100MB",
+      watchPg:true,
+      appendPlugins: [
+          ConnectionFilterPlugin,
+          PostGraphileFulltextFilterPlugin,
+      ],
+  }))
+```
