@@ -20,6 +20,9 @@ The code is then pushed and verified successfully. If any changes, they are reve
 All the applications such as op-api,op-ui, cdsp-ui, cdsp-api, master-registry-api, master-resgistry-ui follows a same workflow and is being pushed.
 
 The workflow is being defined here:  
+
+![alt text](../assets/deploy-ebs.png "aws ebs")
+
 Please refer the image.  
 
 The steps follow as below:  

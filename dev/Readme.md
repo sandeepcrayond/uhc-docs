@@ -270,7 +270,7 @@ For every head table, there is a member table associated which holds the populat
 ## 2.3 APP overview:  
 The application is a very crude app built using express and uses postgraphile as a simple middleware to generate all the queries. check postgraphile for its usage.
 
-![alt text](../assets/master-registry-arch.png "Master registrr arch image")
+![alt text](../assets/mr-arch.png "Master registrr arch image")
 
 All the logics are handled at the frontend wherever the application data is being pushed to.
 ```javascript
