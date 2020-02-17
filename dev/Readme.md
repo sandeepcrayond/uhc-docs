@@ -181,3 +181,34 @@ The babel plugins used are specified in the .babelrc file.
 ```
 
 All the commands to run are specified in the package.json files. Commands to run in all environment are specified such as i.e dev mode, prod mode, build source code etc.
+
+# 6. App structure:  
+the application's code can split into services.
+a. Frontend
+b. API server.
+
+## 6.1 Frontend: 
+The frontend app is built using a create-react-app template and ejected. It uses redux for state management. 
+Once when a change is made into the application's source code, the build command is run to generate the static build.
+And the build is being added into the nginx's default folder so as to make nginx take care of the build serving. The steps are defined in the dockerfile.
+
+the source code structure is as follows:  
+
+1. config:  
+   The config contains the webpack configurations and environment configs.
+2. nginx:  
+   The nginx directory contains the configuration which is customly written to use this instead of the default one.
+3. public:  
+   the public folder of the react app.
+4. scripts:  
+   react scripts.
+5. src:  
+   The list of components is present here.
+6. Dockerfile_Dev:  
+   The dockerfile to be used.
+7. Dockerrun.aws.json:  
+   Deprecated.
+8. package.json:  
+   The package.json file of the react-app.
+
+## 6.2 API server:  
