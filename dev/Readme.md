@@ -9,7 +9,6 @@
    - Babel usage (not mandatory)
    - App structure
    - Migrations, seeders and usage
-   - environments
 2. Master registry  
    - DB structure
    - Tables, definitions and relationships.
@@ -248,3 +247,6 @@ The source code structure is as follows:
     The dockerfile to build the application.
 16. package.json:  
     dependencies and other scripts.
+
+> The application contains the necessary comments to understand the basic usage of every method etc.
+
