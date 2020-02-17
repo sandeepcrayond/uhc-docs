@@ -23,4 +23,52 @@ The workflow is being defined here:
 Please refer the image.  
 
 The steps follow as below:  
-1. 
+1. Whenever, a code is pushed to the AWS repository, a trigger is initiated at the codepipeline which would have been created.
+2. A copy of the current version which is pushed is saved to the s3 (for backup purpose).
+3. Once done, the code is copied to the beanstalk application which is already configured to connect with the necessary dependencies security groups such as elasticache, rds etc.
+4. The code from s3 is downloaded and a blue/green deployment or whatever is necessary is being run.
+5. If the build is successfully replaced, then the previous version is deleted. 
+6. The load balancers are enabled to receive traffic only through 443 and route all 80 traffic to 443.
+7. The certificates for 443 to run are being generated from ACM.
+8. A domain is mapped from route 53 hosted zones to make the EBS app available.
+   
+>The dockerfile for running a node-app using docker in EBS with a build stage is as follows:  
+```docker
+FROM node:12.0.0-alpine
+RUN mkdir -p usr/src/app
+WORKDIR /usr/src/app
+COPY package.json package.json
+RUN npm install --silent && npm cache clean --force
+WORKDIR /usr/src/app
+COPY . .
+EXPOSE 8080
+RUN npm run api-build
+CMD ["npm","start"]
+```
+
+>The dockerfile for running a react app using docker in EBS with a build stage is as follows:  
+```docker
+FROM node:12.4.0-alpine as build  
+WORKDIR /app  
+ENV PATH /app/node_modules/.bin:$PATH  
+COPY package.json /app/package.json   
+RUN npm install --silent  
+RUN npm install react-scripts -g --silent  
+COPY . /app  
+RUN npm run build  
+# # production environment  
+FROM nginx:latest  
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf  
+COPY --from=build /app/build /usr/share/nginx/html  
+EXPOSE 80  
+CMD ["nginx", "-g", "daemon off;"] 
+```
+
+>The dockerfile for running a react app using docker in EBS without a build stage is as follows:  
+```docker
+FROM nginx:latest
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY  ./build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"] 
+```
