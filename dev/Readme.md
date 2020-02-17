@@ -212,3 +212,39 @@ the source code structure is as follows:
    The package.json file of the react-app.
 
 ## 6.2 API server:  
+
+The backend application is an express app which runs on top of apollo-graphql. The application is run locally using npm scripts. Once the changes / modifications are done, the docker image is built the, build files with the dependencies are pushed to the repository.  
+
+The source code structure is as follows:  
+1. api/bin:  
+   The application's http server is present here.
+2. api/caching:  
+   All the data which is being cached is written in this directory.
+3. api/connection:  
+   All the db related queries, connections etc are present here.
+4. api/controllers:  
+   The controllers for every routes and rules are present.
+5. api/cronjobs:  
+   NOTE:DEPRECATED.
+6. api/locales:  
+   NOTE:DEPRECATED.
+7. api/models:  
+   All the models used by the sequelize ORM is present here.
+8. api/modules:  
+   All the modules used throughout the application which supports the app usage.
+9. api/queries:  
+   List of queries hit through master registry. arguments are passed dynamically to generate the query.
+10. api/routes:
+    All the http routing from the application to the controllers.
+11. api/util:  
+   misc/ utility methods.
+12. api/app.js and api/op_conf.js:  
+    app.js is the entry point from www and has all the routing, middlewares etc. op_conf.js has all the configuration and environment files.
+13. migrations and seeders:  
+   The db's migration files is present here. the initial set of changes in the db are preset in the seeders to ease up the work. The migration's are maintained through the sequelize-cli which pulls the environment details from config and .env files.
+14. .babelrc:  
+    the babel presets and plugins for transpilation.
+15. Dockerfile:  
+    The dockerfile to build the application.
+16. package.json:  
+    dependencies and other scripts.
