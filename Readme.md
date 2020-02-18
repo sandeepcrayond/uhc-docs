@@ -11,7 +11,7 @@ This application (Univeral Health Care)  solves the following list of business c
 
 >### For **Developer Documentation** [ go here ](dev/Readme.md)  
   
->### For more about the **features** [ go here ](features/Readme.md)  
+>### For more about the **workflows** [ go here ](workflows/Readme.md)  
 
 >### For viewing the **deployment guidelines** [ go here ](deployment/Readme.md)  
 
