@@ -310,3 +310,21 @@ The application's workflow happens as follows:
 4. The object URL is then mailed out to those users.
 
 The bucket is pointed to a cloudfront server and is server from there with the base url of assets.uhcitp.in
+
+
+# 4. elastic-search tool:
+## 4.1 overview and usage:  
+
+
+The application is a simple tool which has the below list of features such as:  
+1. Create document in an index.  
+2. Update a document.
+3. search a document
+4. populate a sample document in index
+5. populate index by pulling data from master registry.
+   
+The application's runtime process is very simple. One service runs the elasticsearch wrapper and one the master registry postgraphile wrapper.  
+To populate the data in index, the ESW pulls the count from MRPW and runs in iteration to save the document in elasticsearch cluster. 
+The whole master registry is split into indexes such as heads and members list. every head and member list is further split by its district id. so that every index consists of only the population of that district.  
+i.e district_id - 1 - pop_head_idx_1 - pop_member_idx_1.  
+only the ESW is opened up to the frontend to integrate.  
